@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cléo Mudanças & Transportes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 30px 20px;
+        }
+        header img {
+            width: 300px;
+            max-width: 90%;
+        }
+        h1 {
+            color: #f57c00;
+        }
+        form {
+            background-color: #222;
+            padding: 20px;
+            max-width: 500px;
+            margin: 30px auto;
+            border-radius: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #f57c00;
+            color: white;
+            padding: 14px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff9800;
+        }
+        footer {
+            padding: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+    <script>
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            const nome = document.getElementById("nome").value;
+            const origem = document.getElementById("origem").value;
+            const destino = document.getElementById("destino").value;
+            const itens = document.getElementById("itens").value;
+            const data = document.getElementById("data").value;
+            const mensagem = `Olá, meu nome é ${nome}. Gostaria de um orçamento para mudança:
+Origem: ${origem}
+Destino: ${destino}
+Data: ${data}
+Itens: ${itens}`;
+            const url = "https://wa.me/5511963939316?text=" + encodeURIComponent(mensagem);
+            window.open(url, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo-cleo.jpeg" alt="Logo Cléo Transportes">
+        <h1>Cléo Mudanças & Transportes</h1>
+        <p>Orçamento rápido e sem compromisso</p>
+    </header>
+
+    <form onsubmit="enviarWhatsApp(event)">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="text" id="origem" placeholder="Endereço de origem" required>
+        <input type="text" id="destino" placeholder="Endereço de destino" required>
+        <input type="date" id="data" required>
+        <textarea id="itens" placeholder="Quais itens serão transportados?" rows="4" required></textarea>
+        <button type="submit">Solicitar Orçamento via WhatsApp</button>
+    </form>
+
+    <footer>
+        Desenvolvido para Cléo Transportes - Gustavo | WhatsApp: (11) 96393-9316
+    </footer>
+</body>
+</html>
